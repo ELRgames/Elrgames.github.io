@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styled.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form onsubmit="return loginRedirect()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="error-message" style="color: red; display: none;">Incorrect username or password. Please try again.</div>
+    </div>
+    <script>
+        function loginRedirect() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var validUsernames = ['logan', 'brenden']; // Add your valid usernames here
+            var validPasswords = ['2012', 'password']; // Add your valid passwords here
+            if (validUsernames.includes(username) && validPasswords.includes(password)) {
+                location.href = 'index.html';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+            return false; // Prevent actual form submission
+        }
+    </script>
+</body>
+</html>
